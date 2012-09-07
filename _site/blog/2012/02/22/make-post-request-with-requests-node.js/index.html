@@ -67,7 +67,21 @@
 <hr>
 <div id="post"><p>Was stuck at this for quite some time:</p>
 
-<p>Liquid error: No such file or directory - pygmentize</p>
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">postData</span><span class="o">=</span><span class="p">{</span>
+    <span class="nx">a</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="nx">b</span><span class="o">:</span><span class="mi">2</span>
+<span class="p">};</span>
+<span class="nx">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">).</span><span class="nx">post</span><span class="p">({</span>
+    <span class="nx">uri</span><span class="o">:</span><span class="s2">&quot;http://example.com/test&quot;</span><span class="p">,</span>
+    <span class="nx">headers</span><span class="o">:</span><span class="p">{</span><span class="s1">&#39;content-type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/x-www-form-urlencoded&#39;</span><span class="p">},</span>
+    <span class="nx">body</span><span class="o">:</span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;querystring&#39;</span><span class="p">).</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">postData</span><span class="p">)</span>
+    <span class="p">},</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span><span class="nx">body</span><span class="p">){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <p>This will make a post request to <code>http://example.com/test</code> with the querystring parameters in postData. Meaning if you are using PHP, you can see the variables in <code>$_POST</code> instead of parsing request body.</p>
 
